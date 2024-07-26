@@ -220,12 +220,13 @@ class _CartState extends State<Cart> {
                                     ],),
                                   SizedBox(height: 10),
                   Container(
+                    width: 500,
                      decoration: BoxDecoration(
                        color: Colors.brown,
                        borderRadius: BorderRadius.circular(25)
                      ),
                    
-                       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                       padding: EdgeInsets.all(10),
                        child: MaterialButton(
                         onPressed: (){},
                          child: Text(
