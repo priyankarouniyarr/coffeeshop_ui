@@ -11,40 +11,50 @@ class Searchbar extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 10),
+           
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: Colors.grey[200],
             ),
-            margin: EdgeInsets.only(left: 20),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.search,
-                  color: Colors.black,
-                  size: 30,
-                ),
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Search here',
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+            
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.search,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Search here',
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
-        SizedBox(width: 20),
+        SizedBox(width: 10),
         Container(
           decoration: BoxDecoration(
             color: Colors.orange,
             shape: BoxShape.circle,
+          
           ),
-          margin: EdgeInsets.only(right: 25),
-          padding: EdgeInsets.all(28),
+       
+        child: Image.asset(
+                  "images/filter.png",
+                  width: 50,
+                  height: 50,
+                  color:Colors.white,
+        
+                ),
         ),
       ],
     );

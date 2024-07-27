@@ -3,6 +3,7 @@ import 'package:cafe_coffee_house_/card1details.dart';
 import 'package:cafe_coffee_house_/categorybutton.dart';
 import 'package:cafe_coffee_house_/searchbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:getwidget/getwidget.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,73 +18,78 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey[150],
         appBar: AppBar(
-          
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey[150                  ],
           elevation: 0,
+          leading: Image.asset(
+            "images/menu (1).png",
+            width: 100,
+            height: 100,
+          
+          ),
+         
+          
           actions: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10.0),
               child: Stack(
                 alignment: Alignment.topRight,
                 children: [
                   GFIconButton(
-                    icon: Icon(
-                      Icons.shopping_bag,
-                      color: Colors.black,
-                    ),
+                    icon: Image.asset(
+                  "images/bag.png",
+                height:250,
+                width: 100,
+                          
+                ),
                     onPressed: () {},
                     type: GFButtonType.transparent,
                   ),
-                  GFBadge(
+                  const GFBadge(
                     shape: GFBadgeShape.circle,
+                    size: 30,
                   ),
                 ],
               ),
             ),
-          ],
+          ],                          
         ),
-        drawer: Drawer(),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Searchbar(),
-                SizedBox(height: 20),
-                CategoryButtons(),
-                SizedBox(height: 10),
-                Imagesdescription(),
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Text(
+          child: Container(
+            margin:EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Searchbar(),
+                  const SizedBox(height: 20),
+                  CategoryButtons(),
+                  const SizedBox(height: 10),
+                  Imagesdescription(),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
                             "Popular Coffee",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
                             ),
                           ),
-                        ),
-                        SizedBox(width: 5),
-                        Icon(
-                          Icons.local_fire_department_sharp,
-                          color: Colors.yellowAccent,
-                          size: 30,
-                        ),
-                      ],
-                    ),
-                    InkWell(
-                      child: Padding(
-                        padding: const EdgeInsets.all(15.0),
+                          
+                          Icon(
+                            Icons.local_fire_department_sharp,
+                            color: Colors.yellowAccent,
+                            size: 30,
+                          ),
+                        ],
+                      ),
+                      InkWell(
                         child: Text(
                           "View all",
                           style: TextStyle(
@@ -91,20 +97,20 @@ class _HomePageState extends State<HomePage> {
                             color: Colors.orangeAccent,
                           ),
                         ),
+                        onTap: () {
+                          //           Navigator.push(context, MaterialPageRoute(builder: (context) => Detailspage()));
+                        },
                       ),
-                      onTap: () {
-             //           Navigator.push(context, MaterialPageRoute(builder: (context) => Detailspage()));
-                      },
-                    ),
-                  ],
-                ),
-                //SizedBox(height: 10),
-                Card1details(),
-              ],
+                    ],
+                  ),
+                  SizedBox(height: 20),
+                  Card1details(),
+                ],
+              ),
             ),
           ),
         ),
-      ),
+      
     );
   }
 }

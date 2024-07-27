@@ -1,6 +1,8 @@
 import 'package:cafe_coffee_house_/cart/cart.dart';
 import 'package:cafe_coffee_house_/details/detailspage.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class Imagesdescription extends StatelessWidget {
   @override
@@ -26,7 +28,7 @@ class Imagesdescription extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(width: 16), // Space between cards
+            SizedBox(width: 8), // Space between cards
             // Second Card Widget
             Cardlayout(
               img: "images/2.png",
@@ -42,7 +44,7 @@ class Imagesdescription extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(width: 16), 
+            SizedBox(width: 8), 
             // Third Card Widget
             Cardlayout(
               img: "images/3.png",
@@ -59,7 +61,7 @@ class Imagesdescription extends StatelessWidget {
               },
             ),
             SizedBox(
-              width: 16,
+              width: 8,
             ),
             Cardlayout(
               img: "images/4.png",
@@ -102,49 +104,57 @@ class Cardlayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       width: 300, // Set a fixed width for the card
       child: MaterialButton(
+
         onPressed: onPressed, // Fixed usage of parameter
         child: Card(
-          elevation: 0,
+          color: Colors.white,
+          
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
+          
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                img!,
-                height: 200,
-                width: double.infinity,
-                fit: BoxFit.cover,
+              Padding(
+                padding: const EdgeInsets.all(9.0),
+                child: Image.asset(
+                  img!,
+                  height: 200,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              SizedBox(
+                height: 30,
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.only(left:20.0,right:20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
-                          child: Text(
-                            title!,
-                            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
-                            overflow: TextOverflow.ellipsis,
-                          ),
+                        Text(
+                          title!,
+                          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                          overflow: TextOverflow.ellipsis,
                         ),
                         Icon(Icons.favorite, size: 20, color: Colors.red),
                       ],
                     ),
-                    SizedBox(height: 8),
+                    SizedBox(height: 10),
                     Text(
                       subtitle!,
-                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15,color:Colors.grey[600]),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(height: 8),
+                    SizedBox(height: 30),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -156,29 +166,27 @@ class Cardlayout extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        MaterialButton(
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => Cart()));
-                          },
-                          child: Container(
-                            padding: EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(8),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.3),
-                                  spreadRadius: 2,
-                                  blurRadius: 5,
-                                  offset: Offset(0, 3),
+                        Container(
+                  padding:EdgeInsets.only(bottom: 10.0),
+                          child: MaterialButton(
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Cart()));
+                            },
+                            child: Container(
+                              
+                              padding: EdgeInsets.all(8),
+
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(12),
+                                      
+                              ),
+                              child: Center(
+                                child: Icon(
+                                  Icons.add,
+                                  color: Colors.white,
+                                  size: 25,
                                 ),
-                              ],
-                            ),
-                            child: Center(
-                              child: Icon(
-                                Icons.add,
-                                color: Colors.white,
-                                size: 25,
                               ),
                             ),
                           ),

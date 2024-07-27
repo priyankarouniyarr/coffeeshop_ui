@@ -2,11 +2,16 @@ import 'package:cafe_coffee_house_/cart/cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Detailspage extends StatefulWidget {
+class Detailspage extends StatelessWidget {
+  
   final String? title1;
+
   final String? description1;
+
   final String? price1;
+
   final String? image1;
+
   final double? number1;
 
   Detailspage({
@@ -18,54 +23,65 @@ class Detailspage extends StatefulWidget {
   });
 
   @override
-  State<Detailspage> createState() => _DetailspageState();
-}
-
-class _DetailspageState extends State<Detailspage> {
-  @override
+  
+  
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+    appBar:   AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0,
+      leading: IconButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        icon: Icon(Icons.arrow_back, color: Colors.black),
+      ),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+children:[
+          Expanded(
+            child: Center(
+              child: Text(
+                "$title1!",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                  decoration: TextDecoration.none,
+                ),
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ),
+]
+      ),
+      actions: [
+        Icon(Icons.favorite, size: 30, color: Colors.red),
+        SizedBox(width: 16), // Add some padding to the right
+      ],
+    ),
+
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(top:8.0),
+            padding: const EdgeInsets.only(top:10.0,bottom: 10.0),
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal:20,),
-              margin:EdgeInsets.only(left:10,right:10),
+            // padding: EdgeInsets.symmetric),
+              margin:EdgeInsets.only(left:20,right:20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: Icon(Icons.arrow_back),
-                      ),
-                      Expanded(
-                        child: Center(
-                          child: Text(
-                            widget.title1 ?? '',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              decoration: TextDecoration.none,
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                      ),
-                      Icon(Icons.favorite, size: 30, color: Colors.red),
-                    ],
-                  ),
+                
                   SizedBox(height: 20),
-                  Image.asset(
-                    widget.image1 ?? '',
-                    fit: BoxFit.cover,
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Image.asset(
+                      image1 ?? '',
+                      fit: BoxFit.cover,
+                    ),
                   ),
+
                   SizedBox(height: 20),
                   Text(
                     "Size",
@@ -78,7 +94,7 @@ class _DetailspageState extends State<Detailspage> {
                   ),
                   SizedBox(height: 10),
                   Container(
-                    width: double.infinity,
+                    width:200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       color: Colors.grey[200],
@@ -102,7 +118,7 @@ class _DetailspageState extends State<Detailspage> {
                                 Text(
                                   "Small",
                                   style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 15,
                                       color: Colors.black,
                                       decoration: TextDecoration.none),
                                 ),
@@ -122,7 +138,7 @@ class _DetailspageState extends State<Detailspage> {
                                 Text(
                                   "Medium",
                                   style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 14,
                                       color: Colors.black,
                                       decoration: TextDecoration.none),
                                 ),
@@ -142,7 +158,7 @@ class _DetailspageState extends State<Detailspage> {
                                 Text(
                                   "Large",
                                   style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 14,
                                       color: Colors.black,
                                       decoration: TextDecoration.none),
                                 ),
@@ -155,7 +171,7 @@ class _DetailspageState extends State<Detailspage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -166,26 +182,27 @@ class _DetailspageState extends State<Detailspage> {
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.black,
+                              fontWeight: FontWeight.w700,
                               decoration: TextDecoration.none,
                             ),
                           ),
                           SizedBox(width: 10),
                           Container(
-                            width: 120,
+                            width: 90,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
                               border: Border.all(color: Colors.black, width: 0.9),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                              padding: const EdgeInsets.symmetric(horizontal: 10,vertical:5),
                               child: Center(
                                 child: Text(
-                                  "-    1    +",
+                                  "-  1  +",
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontSize: 14,
                                     color: Colors.black,
                                     decoration: TextDecoration.none,
-                                    fontWeight: FontWeight.w200,
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
                               ),
@@ -194,13 +211,13 @@ class _DetailspageState extends State<Detailspage> {
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(10.0),
                         child: Row(
                           children: [
                             Icon(Icons.star_border_outlined, color: Colors.black, size: 30),
                             SizedBox(width: 10),
                             Text(
-                              '${widget.number1 ?? 0}',
+                              '${number1 ?? 0}',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
@@ -221,30 +238,31 @@ class _DetailspageState extends State<Detailspage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 15),
                   Text(
                     "Description",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.black,
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w700,
                       decoration: TextDecoration.none,
                     ),
                   ),
                   SizedBox(height: 10),
                   Text(
-                    widget.description1 ?? '',
+                    description1 ?? '',
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 14,
                       wordSpacing: 1.5,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w200,
+                      color: Colors.grey[600],
+                      fontWeight: FontWeight.w400,
                       decoration: TextDecoration.none,
-                    ),
+                      
+                    ),textAlign: TextAlign.justify,
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 25),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(5.0),
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.push(
@@ -253,7 +271,7 @@ class _DetailspageState extends State<Detailspage> {
                   
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.brown,
+                        backgroundColor: Colors.brown[900],
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
@@ -266,16 +284,16 @@ class _DetailspageState extends State<Detailspage> {
                             'Add to Cart',
                             style: TextStyle(
                               fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                              
                               color: Colors.white,
                             ),
                           ),
                           SizedBox(width: 10),
                           Text(
-                            widget.price1 ?? '',
+                            price1 ?? '',//If price1 is not null, use the value of price1.If price1 is null, use the empty string ''.
                             style: TextStyle(
                               fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                      
                               color: Colors.white,
                             ),
                           ),
