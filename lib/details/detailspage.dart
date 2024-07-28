@@ -65,7 +65,7 @@ children:[
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(top:10.0,bottom: 10.0),
+            padding: const EdgeInsets.only(top:8.0),
             child: Container(
             // padding: EdgeInsets.symmetric),
               margin:EdgeInsets.only(left:20,right:20),

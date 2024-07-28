@@ -28,7 +28,7 @@ class Imagesdescription extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(width: 8), // Space between cards
+      // Space between cards
             // Second Card Widget
             Cardlayout(
               img: "images/2.png",
@@ -44,7 +44,7 @@ class Imagesdescription extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(width: 8), 
+        
             // Third Card Widget
             Cardlayout(
               img: "images/3.png",
@@ -60,9 +60,7 @@ class Imagesdescription extends StatelessWidget {
                 );
               },
             ),
-            SizedBox(
-              width: 8,
-            ),
+        
             Cardlayout(
               img: "images/4.png",
               title: "mocha",
