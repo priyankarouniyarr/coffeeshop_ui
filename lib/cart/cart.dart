@@ -54,7 +54,7 @@ class _CartState extends State<Cart> {
             margin: EdgeInsets.only(left: 10, right: 10),
             child: Cardd(
               title: "Cappuccino",
-              image: "images/1.png",
+              image: "assets/images/1.png",
               price: "\$3.45",
               description: "Milk,Coffee,Espresso",
             ),
@@ -69,7 +69,7 @@ class _CartState extends State<Cart> {
             margin: EdgeInsets.only(left: 10, right: 10),
             child: Cardd(
               title: "Latte",
-              image: "images/3.png",
+              image: "assets/images/3.png",
               price: "\$4.50",
               description: "Milk,Coffee,Espresso",
             ),
@@ -265,8 +265,8 @@ class _CartState extends State<Cart> {
                   Container(
                     width: 500,
                     decoration: BoxDecoration(
-                        color: Colors.brown,
-                        borderRadius: BorderRadius.circular(25)),
+                        color: Colors.brown[900],
+                        borderRadius: BorderRadius.circular(30)),
                     padding: EdgeInsets.all(10),
                     child: MaterialButton(
                       onPressed: () {},

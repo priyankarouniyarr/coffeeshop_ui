@@ -1,4 +1,5 @@
 import 'package:cafe_coffee_house_/Imagedescription.dart';
+import 'package:cafe_coffee_house_/Viewdetails.dart';
 import 'package:cafe_coffee_house_/card1details.dart';
 import 'package:cafe_coffee_house_/categorybutton.dart';
 import 'package:cafe_coffee_house_/searchbar.dart';
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.grey[150                  ],
           elevation: 0,
           leading: Image.asset(
-            "images/menu (1).png",
+            "assets/icons/menu (1).png",
             width: 100,
             height: 100,
           
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   GFIconButton(
                     icon: Image.asset(
-                  "images/bag.png",
+                  "assets/icons/bag.png",
                 height:250,
                 width: 100,
                           
@@ -62,7 +63,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Searchbar(),
+                   Searchbar(),
                   const SizedBox(height: 20),
                   CategoryButtons(),
                   const SizedBox(height: 10),
@@ -98,7 +99,9 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         onTap: () {
-                          //           Navigator.push(context, MaterialPageRoute(builder: (context) => Detailspage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => ViewAllDetails(
+                      
+                    )));
                         },
                       ),
                     ],

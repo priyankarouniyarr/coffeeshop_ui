@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Searchbar extends StatelessWidget {
-  const Searchbar({
-    super.key,
-  });
+class Searchbar extends StatefulWidget {
+   
 
+  
   @override
+  State<Searchbar> createState() => _SearchbarState();
+}
+
+class _SearchbarState extends State<Searchbar> {
   Widget build(BuildContext context) {
     return Row(
       children: [
@@ -34,6 +37,7 @@ class Searchbar extends StatelessWidget {
                         contentPadding: EdgeInsets.symmetric(horizontal: 10),
                       ),
                     ),
+                  
                   ),
                 ],
               ),
@@ -49,7 +53,7 @@ class Searchbar extends StatelessWidget {
           ),
        
         child: Image.asset(
-                  "images/filter.png",
+                  "assets/icons/filter.png",
                   width: 50,
                   height: 50,
                   color:Colors.white,

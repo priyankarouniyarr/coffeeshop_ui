@@ -1,6 +1,8 @@
 
 
 
+import 'package:cafe_coffee_house_/Viewdetails.dart';
+import 'package:cafe_coffee_house_/details/detailspage.dart';
 import 'package:flutter/material.dart';
 
 class Card1details extends StatelessWidget {
@@ -10,7 +12,16 @@ class Card1details extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: (){
-     //   Navigator.push(context, MaterialPageRoute(builder: (context)=>Detailspage()));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>Detailspage(
+        
+      image: 'assets/images/Frap.png',
+      title: 'Frappuccino',
+       
+      description: 'A Frappuccino is a popular blended coffee drink, often associated with Starbucks, that combines coffee, milk, ice, and various flavorings into a refreshing, frosty beverage. It is typically sweetened and can include syrups, whipped cream, and other toppings for added flavor and texture. The Frappuccino comes in various flavors, such as mocha, caramel, vanilla, and seasonal specialties, allowing for a wide range of customization to suit individual preferences. The base of a Frappuccino can either be coffee or a creme base for those who prefer a non-caffeinated option.',
+      rating: 1256,
+      review: 4.5,
+      price: 4.60,
+      )));
       },
 
       child: Card(
@@ -33,7 +44,7 @@ class Card1details extends StatelessWidget {
                   color:Colors.white,),
                   
                   child: Image.asset(
-                    "images/Frap.png",
+                    "assets/images/Frap.png",
                     height: 100,
                     width: 250,
                   ),

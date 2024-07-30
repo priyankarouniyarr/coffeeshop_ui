@@ -2,48 +2,48 @@ import 'package:cafe_coffee_house_/cart/cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Detailspage extends StatelessWidget {
-  
-  final String? title1;
+class Detailspage extends StatefulWidget {
+  final String? title;
 
-  final String? description1;
+  final String? description;
+  final double? price;
+  final int? rating;
+  final String? image;
 
-  final String? price1;
-
-  final String? image1;
-
-  final double? number1;
+  final double? review;
 
   Detailspage({
-    required this.title1,
-    required this.description1,
-    required this.price1,
-    required this.image1,
-    required this.number1,
+    required this.title,
+    required this.rating,
+    required this.description,
+    required this.price,
+    required this.image,
+    required this.review,
   });
 
   @override
-  
-  
+  State<Detailspage> createState() => _DetailspageState();
+}
+
+class _DetailspageState extends State<Detailspage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-    appBar:   AppBar(
-      backgroundColor: Colors.white,
-      elevation: 0,
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        icon: Icon(Icons.arrow_back, color: Colors.black),
-      ),
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-children:[
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back, color: Colors.black),
+        ),
+        title: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           Expanded(
             child: Center(
               child: Text(
-                "$title1!",
+                "${widget.title}",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -54,34 +54,31 @@ children:[
               ),
             ),
           ),
-]
+        ]),
+        actions: [
+          Icon(Icons.favorite, size: 30, color: Colors.red),
+          SizedBox(width: 16), // Add some padding to the right
+        ],
       ),
-      actions: [
-        Icon(Icons.favorite, size: 30, color: Colors.red),
-        SizedBox(width: 16), // Add some padding to the right
-      ],
-    ),
-
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(top:8.0),
+            padding: const EdgeInsets.only(top: 8.0),
             child: Container(
-            // padding: EdgeInsets.symmetric),
-              margin:EdgeInsets.only(left:20,right:20),
+              // padding: EdgeInsets.symmetric),
+              margin: EdgeInsets.only(left: 20, right: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                
                   SizedBox(height: 20),
                   Padding(
                     padding: const EdgeInsets.all(30.0),
                     child: Image.asset(
-                      image1 ?? '',
-                      fit: BoxFit.cover,
+                      widget.image ?? '',
+                      height: 200,
+                      fit: BoxFit.contain,
                     ),
                   ),
-
                   SizedBox(height: 20),
                   Text(
                     "Size",
@@ -94,19 +91,19 @@ children:[
                   ),
                   SizedBox(height: 10),
                   Container(
-                    width:200,
+                    width: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       color: Colors.grey[200],
                     ),
-                   
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         // Small size button with icon and text
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
                               color: Colors.white,
@@ -131,7 +128,8 @@ children:[
                         SizedBox(width: 10),
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -151,7 +149,8 @@ children:[
                         SizedBox(width: 10),
                         Expanded(
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -191,10 +190,12 @@ children:[
                             width: 90,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(25),
-                              border: Border.all(color: Colors.black, width: 0.9),
+                              border:
+                                  Border.all(color: Colors.black, width: 0.9),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 10,vertical:5),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
                               child: Center(
                                 child: Text(
                                   "-  1  +",
@@ -214,10 +215,11 @@ children:[
                         padding: const EdgeInsets.all(10.0),
                         child: Row(
                           children: [
-                            Icon(Icons.star_border_outlined, color: Colors.black, size: 30),
+                            Icon(Icons.star_border_outlined,
+                                color: Colors.black, size: 30),
                             SizedBox(width: 10),
                             Text(
-                              '${number1 ?? 0}',
+                              '${widget.review ?? 0}',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15,
@@ -226,12 +228,12 @@ children:[
                               ),
                             ),
                             Text(
-                              ' (1256 reviews)',
+                              ' (${widget.rating} reviews)',
                               style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.black,
-                                decoration: TextDecoration.none,
-                              ),
+                                  fontSize: 15,
+                                  color: Colors.black,
+                                  decoration: TextDecoration.none,
+                                  fontWeight: FontWeight.w700),
                             ),
                           ],
                         ),
@@ -250,55 +252,65 @@ children:[
                   ),
                   SizedBox(height: 10),
                   Text(
-                    description1 ?? '',
+                    widget.description ?? '',
                     style: TextStyle(
                       fontSize: 14,
                       wordSpacing: 1.5,
                       color: Colors.grey[600],
                       fontWeight: FontWeight.w400,
                       decoration: TextDecoration.none,
-                      
-                    ),textAlign: TextAlign.justify,
+                    ),
+                    textAlign: TextAlign.justify,
                   ),
                   SizedBox(height: 25),
-                  Padding(
-                    padding: const EdgeInsets.all(5.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Cart()));
-                  
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.brown[900],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.brown[900],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Add to Cart',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
                         ),
-                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Add to Cart',
-                            style: TextStyle(
-                              fontSize: 16,
+                        SizedBox(width: 10),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '|',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
                               
-                              color: Colors.white,
+                                '\$${widget.price ?? ''}', //If price1 is not null, use the value of price1.If price1 is null, use the empty string ''.
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 10),
-                          Text(
-                            price1 ?? '',//If price1 is not null, use the value of price1.If price1 is null, use the empty string ''.
-                            style: TextStyle(
-                              fontSize: 16,
-                      
-                              color: Colors.white,
-                            ),
-                          ),
-                        ],
-                      ),
+                          ],
+                        )
+                      ],
                     ),
                   ),
                 ],
